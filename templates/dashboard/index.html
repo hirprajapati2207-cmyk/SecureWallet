@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>Dashboard</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="stats">
+      <p>Total Credentials: {{ creds_count }}</p>
+      <p>Total Categories: {{ cats_count }}</p>
+  </div>
+  
+  <h2>Recent Activity</h2>
+  <ul>
+    {% for log in logs %}
+      <li>{{ log.created_at }} - {{ log.action }}: {{ log.description }}</li>
+    {% else %}
+      <li>No recent activity.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
